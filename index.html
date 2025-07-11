@@ -170,6 +170,11 @@
                 font-size: 1.125rem; /* Adjust for smaller screens */
             }
         }
+
+        /* Initially hide the feature sections */
+        .hidden-section {
+            display: none;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -183,7 +188,7 @@
                 Streamline customer service, automate workflows, and handle high volumes with ease using OwlDesk and OwlForce.
             </p>
             <a href="#contact-us" class="cta-button">
-                Book a Demo
+                Request a Free Demo
             </a>
         </div>
     </section>
@@ -243,17 +248,20 @@
                 </div>
             </div>
             <div class="text-center mt-8">
-                <a href="#owldesk-features" class="cta-button">
+                <button onclick="toggleSectionAndScroll('owldesk-features')" class="cta-button">
                     Explore OwlDesk Features
-                </a>
-                <a href="#owlforce-features" class="cta-button ml-4">
+                </button>
+                <button onclick="toggleSectionAndScroll('owlforce-features')" class="cta-button ml-4">
                     Explore OwlForce Features
-                </a>
+                </button>
+                <button onclick="toggleSectionAndScroll('wa-bot-section')" class="cta-button ml-4">
+                    Explore WA Bot Features
+                </button>
             </div>
         </section>
 
         <!-- OwlDesk Features Section -->
-        <section id="owldesk-features" class="mb-16">
+        <section id="owldesk-features" class="mb-16 hidden-section">
             <h2 class="text-3xl font-semibold section-title mb-6 text-center">OwlDesk Features: Empowering Your Service Team</h2>
             <p class="text-lg leading-relaxed mb-8 text-center max-w-2xl mx-auto">
                 Discover how OwlDesk's intelligent capabilities streamline your customer service operations and boost agent productivity. Click on each feature to learn more!
@@ -433,7 +441,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </details>
             </details>
 
             <!-- Analytics & Reporting -->
@@ -462,7 +470,7 @@
         </section>
 
         <!-- OwlForce Features Section -->
-        <section id="owlforce-features" class="mb-16">
+        <section id="owlforce-features" class="mb-16 hidden-section">
             <h2 class="text-3xl font-semibold section-title mb-6 text-center">OwlForce Features: Automating Workflows with Conversational AI</h2>
             <p class="text-lg leading-relaxed mb-8 text-center max-w-2xl mx-auto">
                 Explore how OwlForce's advanced AI capabilities automate processes, handle conversations, and drive efficiency across your organization.
@@ -489,8 +497,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </details>
+                </details>
 
             <!-- Intent Recognition -->
             <details>
@@ -508,7 +515,7 @@
                             <div class="diagram-box">Handles Simultaneously / Seeks Info for Incomplete</div>
                         </div>
                     </div>
-                </div>
+                </details>
             </details>
 
             <!-- Multilingual AI -->
@@ -532,7 +539,7 @@
                             <div class="diagram-box">Nuance & Intent Capture</div>
                         </div>
                     </div>
-                </div>
+                </details>
             </details>
 
             <!-- Robotic Process Automation (RPA) -->
@@ -551,7 +558,7 @@
                             <div class="diagram-box">Seamless Data Transfer to Third-Party Systems</div>
                         </div>
                     </div>
-                </div>
+                </details>
             </details>
 
             <!-- Intelligent Document Processing -->
@@ -572,7 +579,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </details>
             </details>
 
             <!-- Sentiment Analysis -->
@@ -589,7 +596,7 @@
                             <div class="diagram-box">Recognizes Sentiment (Positive, Negative, Neutral, Frustration)</div>
                         </div>
                     </div>
-                </div>
+                </details>
             </details>
             <div class="text-center mt-12">
                 <a href="#contact-us" class="cta-button">
@@ -599,7 +606,7 @@
         </section>
 
         <!-- WhatsApp Bot (WA Bot) Section -->
-        <section id="wa-bot-section" class="mb-16">
+        <section id="wa-bot-section" class="mb-16 hidden-section">
             <h2 class="text-3xl font-semibold section-title mb-6 text-center">WhatsApp Bot (WA Bot): Real-time Customer Support</h2>
             <div class="card p-6 mb-8">
                 <p class="mb-4 text-lg text-center max-w-2xl mx-auto">
@@ -896,10 +903,6 @@
                     </div>
                 </details>
             </div>
-            <div class="text-center mt-12">
-                <a href="#contact-us" class="cta-button">
-                    Discover Retail Success Stories
-                </a>
             </div>
         </section>
 
@@ -925,9 +928,23 @@
 
     <footer class="bg-gray-800 text-white py-6 mt-12">
         <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 ThinkOwl. All rights reserved. 
-This page is based on secondary research and encompasses a general idea of Retail Landscape. The solutions will depend on individual circumstances and processes, kindly consult with a representative of ThinkOwl for accurate and up to date information for your specific needs and wants.</p>
+            <p>&copy; 2023 ThinkOwl. All rights reserved. (This page is based on secondary research and encompasses a general idea of Retail Landscape. The solutions will depend on individual circumstances and processes, kindly consult with a representative of ThinkOwl for accurate and up to date information for your specific needs and wants)</p>
         </div>
     </footer>
+
+    <script>
+        function toggleSectionAndScroll(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                // Toggle the 'hidden-section' class
+                section.classList.toggle('hidden-section');
+
+                // If the section is now visible, scroll to it
+                if (!section.classList.contains('hidden-section')) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }
+    </script>
 </body>
 </html>
